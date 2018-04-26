@@ -1,0 +1,17 @@
+snippet _skel "boilerplate" b
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+endsnippet
+
+snippet arg "argparse argument" b
+parser.add_argument('-`!p snip.rv = t[1][0] if len(t[1]) > 0 else '' `', '--${1}'`!p snip.rv = ", nargs=" if t[2] else ""`${2:'+'}`!p snip.rv = ", type=" if t[3] else ""`${3:int})
+endsnippet
+
+snippet argparse "argparse boilerplate" b
+parser = argparse.ArgumentParser()
+parser.add_argument('name', type=int, nargs='+', help='an integer')
+args = parser.parse_args()
+endsnippet
