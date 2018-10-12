@@ -34,3 +34,17 @@ snippet env "\newenvironment" b
 	{$2}
 	{$3}
 endsnippet
+
+snippet keyval "new keyval command" b
+\usepackage{keyval}
+
+\newcommand{\\$1}[1]
+	{\setkeys{$1}{#1}
+	}
+endsnippet
+
+snippet k "keyval key" b
+\newcommand{\\$1@$2}{${3:default}}
+\define@key{${1:keyset}}{${2:keyname}}{\newcommand{\\$1@$2}{#1}}
+$0
+endsnippet

@@ -14,3 +14,9 @@ function $1 {
 	}
 }
 endsnippet
+
+snippet cmdletbinding "[CmdletBinding()] boilerplate" b
+[CmdletBinding()]
+Param (`!p snip.rv = "\n\t[Parameter(ValueFromPipeline=$True)]\n\t[String]$" if t[2] else ""`${2:FileName}
+)
+endsnippet
