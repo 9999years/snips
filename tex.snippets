@@ -10,7 +10,7 @@ snippet multicol "multiple columns"
 endsnippet
 
 snippet pac "package" b
-\usepackage{$1}$0
+\usepackage`!p snip.rv = "[" if t[2] else ""`${2}`!p snip.rv = "]" if t[2] else ""`{$1}$0
 endsnippet
 
 snippet b "begin..end environment"
@@ -35,6 +35,10 @@ snippet env "\newenvironment" b
 	{$3}
 endsnippet
 
+snippet pb "pagebreak" b
+\pagebreak
+endsnippet
+
 snippet keyval "new keyval command" b
 \usepackage{keyval}
 
@@ -44,11 +48,11 @@ snippet keyval "new keyval command" b
 endsnippet
 
 snippet k "keyval key" b
-\newcommand{\\$1@$2}{${3:default}}
-\define@key{${1:keyset}}{${2:keyname}}{\newcommand{\\$1@$2}{#1}}
+`!p snip.rv = "\\newcommand{\\%s@%s}{" % (t[1], t[2]) if t[3] else ""`${3:default}`!p snip.rv = "}\n" if t[3] else ""`\define@key{${1:keyset}}{${2:keyname}}{\\`!p snip.rv = "re" if t[3] else ""`newcommand{\\$1@$2}{#1}}
 $0
 endsnippet
 
-snippet pb "pagebreak" b
-\pagebreak
+snippet ktf "keyval boolean" b
+\newif\if$1@$2
+\define@key{${1:keyset}}{${2:keyname}}[true]{\\$1@$2true}
 endsnippet
